@@ -51,8 +51,11 @@ export default function App() {
                 <div className="flex flex-col gap-2">
                     <div className="flex justify-between gap-2">
                     <div className="text-[#003F70] text-base font-semibold leading-tight">Іванна Абдрахманова</div>
-                    <div>
-                        <span className="justify-start text-[#F7941D] text-base font-semibold leading-none">4.8</span>
+                    <div className="flex gap-1 items-center">
+                    <span className="shrink-0">
+                            <img className="w-5 h-auto" src="/images/star.svg" alt="review-rating-star" />
+                    </span> 
+                    <span className="justify-start text-[#F7941D] text-base font-semibold leading-none">4.9</span>
                     </div>
                 </div>
 

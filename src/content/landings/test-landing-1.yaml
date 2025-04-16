@@ -19,5 +19,3 @@ blocks:
         name: Аналіз ДНК
   - type: product
     id: 3
-  - type: product
-    id: 4

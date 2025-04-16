@@ -6,7 +6,7 @@ const { title, steps } = Astro.props;
 
 <section class="bg-[#F8FAFC]">
     <div class="container py-16 flex flex-col gap-10">
-        <SectionTitle  client:load html={title}  />
+        <SectionTitle html={title}  />
         <div class="flex flex-wrap gap-0.5">
 
             {steps.map((item: any, index: number) => (

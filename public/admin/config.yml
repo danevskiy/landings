@@ -1,7 +1,6 @@
 backend:
-  name: test
-local_backend:
-  allowed_hosts: ['192.168.2.194']
+  name: git-gateway
+  branch: main
 
 media_folder: "public/uploads"
 public_folder: "/uploads"

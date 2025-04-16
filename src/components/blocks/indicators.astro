@@ -4,7 +4,7 @@ import SectionTitle from '../sectionTitle.astro'
 const { title, indicators_groups } = Astro.props;
 ---
 <section class="container py-16 flex flex-col gap-10">
-    <SectionTitle  client:load html={title}  />
+    <SectionTitle html={title}  />
     <div class="w-[1060px] mw-[100%] mx-auto">
 
         <IndicatorTabs indicators_groups={indicators_groups} client:load />

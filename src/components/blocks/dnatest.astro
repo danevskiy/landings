@@ -7,7 +7,7 @@ const stepsData = steps.map((step: any, index: number) => ({...step, id: index+1
 const colorsClasses = ['text-[#FE7410]','text-[#00B7F1]','text-[#2AA872]','text-[#FEBE10]','text-[#85C776]','text-[#0083CA]']
 ---
 <section class="container py-16 flex flex-col gap-10">
-    <SectionTitle  client:load html={title}  />
+    <SectionTitle html={title}  />
 
     <div class="flex flex-wrap gap-5">
 
@@ -19,7 +19,7 @@ const colorsClasses = ['text-[#FE7410]','text-[#00B7F1]','text-[#2AA872]','text-
                     
                 </div>
 
-                <DnaDescriptionHtml client:load html={item.description} />
+                <DnaDescriptionHtml html={item.description} />
 
                 {item.button && item.button.text && item.button.video && 
                 <div id="openVideoModal" dataIframe={item.button.video} class="px-3 py-2.5 bg-[#fff] rounded-[99px] inline-flex justify-center items-center gap-2 w-full mt-2 cursor-pointer">

@@ -5,7 +5,7 @@ const { title } = Astro.props;
 <section class="relative" style="background: url(../images/bg_gradient.svg); background-size: cover; background-position: center top;">
    
     <div class="container py-16 flex flex-col gap-10">
-    <SectionTitle  client:load html={title}  />
+    <SectionTitle html={title}  />
     <div class="w-[100%] mw-[976px] mx-auto flex flex-col gap-10">
 
       <div class="rounded-[40px] overflow-hidden">
