@@ -1,0 +1,14 @@
+---
+import VideoSlider from '../videoSlider';
+import SectionTitle from '../sectionTitle.astro'
+const { title, video_list } = Astro.props;
+---
+<section class="bg-white px-6 py-16 flex flex-col gap-10">
+    <SectionTitle  client:load html={title}  />
+    
+    <div>
+
+        <VideoSlider video_list={video_list} client:load />
+        
+    </div>
+</section>

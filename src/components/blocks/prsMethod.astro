@@ -1,0 +1,33 @@
+---
+import SectionTitle from '../sectionTitle.astro'
+const { title } = Astro.props;
+---
+<section class="relative" style="background: url(../images/bg_gradient.svg); background-size: cover; background-position: center top;">
+   
+    <div class="container py-16 flex flex-col gap-10">
+    <SectionTitle  client:load html={title}  />
+    <div class="w-[100%] mw-[976px] mx-auto flex flex-col gap-10">
+
+      <div class="rounded-[40px] overflow-hidden">
+        <div>
+        <img class="w-full h-auto" src="/images/prs.png" alt="prs">
+        </div>
+        <div class="text-[#003F70] text-base font-normal leading-normal bg-white flex flex-wrap border-t border-[#F1F5F9]">
+            <div class="w-1/2 px-[34px] py-6 border-r border-[#F1F5F9]">
+                    <strong>PRS аналізує сукупний вплив усіх SNP</strong> та їхню взаємодію, формуючи цілісну картину генетичної схильності до певного стану, а не лише окремі фактори.
+            </div>
+
+            <div class="w-1/2 px-[34px] py-6">
+                <strong>Класичний метод зосереджується лише на одному-двох SNP</strong>, і надає базову інформацію без урахування складних взаємозв’язків.
+            </div>
+        </div>
+      </div>
+
+      <div class="text-center text-[#003F70] text-base leading-7 w-[719px] max-w-[100%] mx-auto">
+        <strong>Точність 99.9%</strong> — ґрунтується на даних наукових досліджень із провідних медичних журналів (Nature Genetics, Science тощо) та доказовій базі, що підтверджує зв’язок генетичних маркерів із станом здоров’я.
+      </div>
+     
+        
+    </div>
+    </div>
+</section>

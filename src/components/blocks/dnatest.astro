@@ -1,0 +1,54 @@
+---
+import VideoModal from '../VideoModal.astro';
+import DnaDescriptionHtml from '../dnaHtml.astro'
+import SectionTitle from '../sectionTitle.astro'
+const { title, steps } = Astro.props;
+const stepsData = steps.map((step: any, index: number) => ({...step, id: index+1}))
+const colorsClasses = ['text-[#FE7410]','text-[#00B7F1]','text-[#2AA872]','text-[#FEBE10]','text-[#85C776]','text-[#0083CA]']
+---
+<section class="container py-16 flex flex-col gap-10">
+    <SectionTitle  client:load html={title}  />
+
+    <div class="flex flex-wrap gap-5">
+
+        {stepsData.map((item: any) => (
+            <div class="w-[calc(33.333333%-(40px/3))] px-8 pt-5 pb-8 relative bg-[#F8FAFC] rounded-[40px] inline-flex flex-col justify-start items-start gap-2">
+                <div class="flex flex-wrap items-center gap-1">
+                    <div class="relative"><span class={colorsClasses[item.id-1] + ' absolute right-[100%] top-0 text-center text-['+colorsClasses[item.id-1]+'] text-lg font-semibold leading-relaxed'}>{item.id}</span><img class="w-12 h-auto shrink-0" src={item.icon} alt="icon"/></div>
+                    <div class="text-[#003F70] text-xl font-semibold leading-normal [text-shadow:_0px_4px_80px_rgb(0_0_0_/_0.25)]">{item.name}</div>
+                    
+                </div>
+
+                <DnaDescriptionHtml client:load html={item.description} />
+
+                {item.button && item.button.text && item.button.video && 
+                <div id="openVideoModal" dataIframe={item.button.video} class="px-3 py-2.5 bg-[#fff] rounded-[99px] inline-flex justify-center items-center gap-2 w-full mt-2 cursor-pointer">
+                <div class="text-[#E8410E] text-base font-semibold leading-tight">{item.button.text}</div>
+                </div>
+                }
+            </div>
+          ))}
+        
+    </div>
+
+    <VideoModal isOpen={false} />
+</section>
+
+<script>
+    const openBtn = document.getElementById('openVideoModal');
+    const videoModal = document.getElementById('videoModal');
+
+    
+  
+    if(videoModal){
+    
+    openBtn?.addEventListener('click', () => {
+        const videoLink = openBtn.getAttribute('dataIframe');
+        const contentBlock = videoModal.querySelector('#videoContent');
+        if(videoLink && contentBlock){
+        contentBlock.innerHTML = videoLink
+        videoModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+    });
+    }
+</script>

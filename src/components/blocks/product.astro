@@ -1,0 +1,120 @@
+
+---
+import ProductSlider from '../productSlider';
+import ReviewSlider from '../reviewSlider';
+import DocModal from '../DocModal.astro';
+---
+
+
+<section class="container pb-14">
+    <div class="flex flex-wrap gap-10">
+    <div class="w-[calc(50%-20px)]">
+        <ProductSlider client:load />
+    </div>
+
+    <div class="w-[calc(50%-20px)]">
+        <h1 class="text-[#003F70] text-5xl font-bold leading-[52px] mb-3">Wellness</h1>
+        <div class="text-[#003F70] text-xl font-normal leading-loose mb-4">Комплексний ДНК-аналіз здоров’я на основі 120-ти показників</div>
+        <div class="flex flex-wrap gap-2 mb-6">
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/food.png" alt="food">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Дієта та харчування</span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/vitamins.png" alt="vitamins">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Вітаміни та мінерали</span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/sport.png" alt="sport">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Спорт та фізична активність</span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/metabolism.png" alt="metabolism">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Довголіття та метаболізм</span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/hormones.png" alt="hormones">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Гормони та сон</span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] rounded-[20px] inline-flex justify-start items-center gap-3 w-[calc(33.333%-5.33px)]">
+                <img class="w-[30px] h-auto" src="/images/allergy.png" alt="allergy">
+                <span class="text-[#003F70] text-[15px] font-medium leading-tight">Схильність до алергій</span>
+            </div>
+            
+        </div>
+
+
+        <div class="flex flex-col gap-7">
+
+                <div class="flex items-start justify-between items-center gap-3">
+        
+                    <div class="flex flex-wrap items-end relative gap-4">
+                        <span class="justify-start text-[#fff] text-xs font-semibold px-1.5 py-1 origin-top-left rotate-[8.48deg] bg-gradient-to-r from-orange-500 to-orange-500 rounded-[10px] inline-flex justify-center items-center absolute -top-[15px] -right-[10px]">−25%</span>
+                        <span class="text-[#003F70] text-4xl font-semibold flex items-end gap-1"><span>14 900</span> <span class="text-[#003F70] text-2xl font-medium">₴</span></span>
+                        <span class="text-[#003F70] text-2xl font-semibold line-through flex items-end gap-1"><span>20 000</span> <span class="text-[#003F70] text-lg font-medium">₴</span></span>
+                    </div>
+
+                    <div class="flex gap-3 items-center">
+                        <img class="max-w-[52px] h-auto" src="/images/banks.svg" alt="banks">
+                        
+                        <span class="text-[#003F70] text-sm font-medium leading-4.5">Розтермінування<br/>від 3 333 ₴/міс</span>
+                    </div>
+        
+                   
+        
+                </div>
+                <div class="flex wrap items-center justify-between gap-3">
+                
+                    <a class="px-10 py-4 bg-gradient-to-r from-[#F75E1D] to-[#F97D3E] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#fff] text-lg font-bold leading-tight">Купити зараз</span>
+                    </a>
+
+                    <div class="pl-2 pr-2.5 py-1 bg-[#F8FAFC] rounded-[99px] inline-flex justify-start items-start gap-1.5">
+                        <div class="p-1 doc-gradient  rounded-[99px] inline-flex justify-start items-center overflow-hidden">
+                            <div class="w-5 h-5 relative overflow-hidden">
+                                <img src="/images/doc.svg" alt="document">
+                            </div>
+                        </div>
+                        <div class="self-stretch flex justify-start items-center gap-2 cursor-pointer">
+                        <div id="openDocModal" class="text-[#003F70] text-base font-semibold leading-none">Приклад звіту</div>
+                        </div>
+                    </div>       
+                    
+                </div>
+        </div>
+
+
+        
+        
+        <div class="mt-10">
+        <ReviewSlider client:load />
+        </div>
+            
+        
+        
+        
+        </div>
+
+    </div>
+
+
+    <DocModal isOpen={false} />
+   
+    
+</section>
+
+<script>
+    const openBtn = document.getElementById('openDocModal');
+    const docModal = document.getElementById('docModal');
+  
+    if(docModal){
+    openBtn?.addEventListener('click', () => {
+        docModal.classList.remove('opacity-0', 'pointer-events-none');
+    });
+    }
+</script>

@@ -1,0 +1,23 @@
+title: test-landing-1
+blocks:
+  - type: header
+    logo: /uploads/humess-logo-brand.svg
+    menu:
+      - name: Головна
+        href: /
+      - name: Про нас
+        href: /about
+  - type: breadcrumbs
+    list:
+      - id: 0
+        href: /main
+        name: Головна
+      - id: 1
+        href: /products
+        name: Товари
+      - id: 3
+        name: Аналіз ДНК
+  - type: product
+    id: 3
+  - type: product
+    id: 4

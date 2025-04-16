@@ -1,0 +1,27 @@
+---
+const { menu, logo } = Astro.props;
+---
+
+<header class="container flex relative justify-center items-center min-h-[64px] rounded-bl-[20px] rounded-br-[20px] shadow-[0px_4px_40px_0px_rgba(0,63,112,0.04)] shadow-[0px_1px_0px_0px_rgba(0,0,0,0.04)] overflow-hidden">
+
+  <div class="absolute top-[14px] left-20"><img src={logo} alt="logo" class="max-w-[160px]" /></div>
+  
+
+  <ul class="flex gap-12">
+    {menu.map((item: any) => (
+      <li>
+        <a class="text-[#003F70] text-base font-semibold leading-tight" href={item.href}>{item.name}</a>
+      </li>
+    ))}
+  </ul>
+
+  <div class="flex gap-6 absolute top-[18px] right-20">
+    <a href="tel:+380685866855"><img class="w-[28px] h-auto" src="/images/phone.svg" alt="phone"></a>
+    <a href="#"><img class="w-[28px] h-auto" src="/images/profile.svg" alt="accaunt"></a>
+    <a href="#"><img class="w-[28px] h-auto" src="/images/cart.svg" alt="cart"></a>
+  </div>
+
+
+
+
+</header>

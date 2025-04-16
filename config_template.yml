@@ -1,0 +1,40 @@
+backend:
+  name: test
+local_backend:
+  allowed_hosts: ['192.168.2.194']
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "landings"
+    label: "Landings"
+    folder: "src/content/landings"
+    extension: "yaml"
+    format: "yaml"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Blocks"
+        name: "blocks"
+        widget: "list"
+        types:
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subheading", name: "subheading", widget: "string" }
+              - { label: "Background Image", name: "background_image", widget: "image" }
+
+          - label: "Features Block"
+            name: "features"
+            widget: "object"
+            fields:
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }

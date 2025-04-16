@@ -1,0 +1,15 @@
+---
+import QuestionTabs from '../questionTabs';
+import SectionTitle from '../sectionTitle.astro'
+const { title, questions_list } = Astro.props;
+---
+<section class="bg-[#F8FAFC]">
+    <div class="container py-16 flex flex-col gap-10">
+        <SectionTitle  client:load html={title}  />
+        <div class="w-[1060px] mw-[100%] mx-auto">
+
+            <QuestionTabs questions_list={questions_list} client:load />
+            
+        </div>
+    </div>
+</section>

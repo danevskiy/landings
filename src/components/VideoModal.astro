@@ -1,0 +1,27 @@
+---
+const { isOpen = false } = Astro.props;
+---
+
+<div id="videoModal" class={`fixed inset-0 bg-[#003F7066] bg-opacity-50 flex items-center justify-center z-50 transition-opacity py-10 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+  <div class="bg-white rounded-lg p-8 pt-9 px-8 relative overflow-auto">
+    <button id="closeVideoModal" class="absolute top-2 right-2 cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="4.22266" y="3" width="24" height="2" rx="1" transform="rotate(45 4.22266 3)" fill="#003F70"/>
+        <rect x="2.80664" y="19.9706" width="24" height="2" rx="1" transform="rotate(-45 2.80664 19.9706)" fill="#003F70"/>
+        </svg>
+    </button>
+   <div id="videoContent" class=""></div>
+  </div>
+</div>
+
+<script>
+  const videoModal = document.getElementById('videoModal');
+  const closeBtn = document.getElementById('closeVideoModal');
+  if(videoModal){
+  closeBtn?.addEventListener('click', () => {
+    const contentBlock = videoModal.querySelector('#videoContent');
+    if(contentBlock) contentBlock.innerHTML = '';
+    videoModal.classList.add('opacity-0', 'pointer-events-none');
+  });
+  }
+</script>

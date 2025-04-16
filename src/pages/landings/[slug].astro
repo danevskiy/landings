@@ -1,0 +1,73 @@
+---
+import { readFileSync } from 'fs';
+import path from 'path';
+//import { NotFound } from 'astro/components';
+import yaml from 'yaml';
+import { resolveComponent } from '../../utils/resolveComponent.ts';
+import "../../styles/global.css";
+
+
+// Папка, где находятся все лендинги
+const landingDirectory = path.resolve('./src/content/landings');
+
+// Функция getStaticPaths
+export async function getStaticPaths() {
+  const landingDirectory = path.resolve('./src/content/landings');
+  const fs = await import('fs').then(module => module.promises);
+  
+  // Читаем все файлы в директории с лендингами
+  const files = await fs.readdir(landingDirectory);
+
+  // Делаем фильтрацию и преобразование имен файлов в slug (убираем расширение .yaml)
+  
+  const paths = files
+    .filter(file => file.endsWith('.yaml'))  // Берём только .yaml файлы
+    .map(file => ({
+      params: { slug: file.replace('.yaml', '') },  // Создаём slug без расширения
+    }));
+
+  return [...paths];
+}
+
+// Загружаем данные для текущего slug
+const { slug } = Astro.params;
+const landingFilePath = path.resolve(landingDirectory, `${slug}.yaml`);
+
+let landing;
+try {
+  const landingData = readFileSync(landingFilePath, 'utf-8');
+  landing = yaml.parse(landingData);  // Разбираем YAML файл
+} catch (error) {
+  landing = null;
+}
+
+
+
+const resolvedBlocks = await Promise.all(
+  landing.blocks.map(async (block) => {
+    const Component = await resolveComponent(block.type);
+    return { Component, props: block };
+  })
+);
+---
+
+
+
+{landing ? (
+  <html>
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    </head>
+    <body>
+        {resolvedBlocks.map(({ Component, props }, index) =>
+            Component && <Component {...props} key={index} />
+        )}
+    
+    </body>
+  </html>
+) : (
+  {/* <NotFound /> */}
+)}

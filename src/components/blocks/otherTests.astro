@@ -1,0 +1,97 @@
+---
+import SectionTitle from '../sectionTitle.astro'
+const { title } = Astro.props;
+---
+<section class="bg-[#F8FAFC]">
+    <div class="container py-16 flex flex-col gap-10">
+    <SectionTitle  client:load html={title}  />
+    <div class="flex flex-wrap gap-x-10 gap-y-5">
+        <div class="flex flex-col gap-5 w-[calc(33.333333%-(80px/3))] mb-2 p-4 pb-6 bg-white rounded-[40px]">
+            <div>
+                <img class="mw-[100%] h-auto" src="/images/testPr1.png" alt="product-image">
+            </div>
+            <div class="px-4">
+                <div class="flex flex-wrap justify-between gap-2 items-end mb-2">
+                    <div class="text-[#003F70] text-2xl font-semibold leading-7">Wellness</div>
+
+                    <div class="flex items-end gap-0.5 text-[#003F70]">
+                        <span class="justify-start text-xl font-semibold">10 000</span>
+                        <span class="justify-start text-base font-medium">₴</span>
+                    </div>
+                </div>
+
+                <div class="text-[#003F70] text-base font-normal leading-normal mb-2">Комплексний ДНК-аналіз здоров’я на основі 120 показників</div>
+                
+                <div class="flex items-center gap-2 flex-wrap">
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-[#F8FAFC] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#003F70] text-base font-bold leading-none">Детальніше</span>
+                    </a>
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-gradient-to-r from-[#F75E1D] to-[#F97D3E] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#fff] text-base font-bold leading-none">Купити</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-5 w-[calc(33.333333%-(80px/3))] mb-2 p-4 pb-6 bg-white rounded-[40px]">
+            <div>
+                <img class="mw-[100%] h-auto" src="/images/testPr1.png" alt="product-image">
+            </div>
+            <div class="px-4">
+                <div class="flex flex-wrap justify-between gap-2 items-end mb-2">
+                    <div class="text-[#003F70] text-2xl font-semibold leading-7">Wellness</div>
+
+                    <div class="flex items-end gap-0.5 text-[#003F70]">
+                        <span class="justify-start text-xl font-semibold">10 000</span>
+                        <span class="justify-start text-base font-medium">₴</span>
+                    </div>
+                </div>
+
+                <div class="text-[#003F70] text-base font-normal leading-normal mb-2">Комплексний ДНК-аналіз здоров’я на основі 120 показників</div>
+                
+                <div class="flex items-center gap-2 flex-wrap">
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-[#F8FAFC] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#003F70] text-base font-bold leading-none">Детальніше</span>
+                    </a>
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-gradient-to-r from-[#F75E1D] to-[#F97D3E] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#fff] text-base font-bold leading-none">Купити</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-5 w-[calc(33.333333%-(80px/3))] mb-2 p-4 pb-6 bg-white rounded-[40px]">
+            <div>
+                <img class="mw-[100%] h-auto" src="/images/testPr1.png" alt="product-image">
+            </div>
+            <div class="px-4">
+                <div class="flex flex-wrap justify-between gap-2 items-end mb-2">
+                    <div class="text-[#003F70] text-2xl font-semibold leading-7">Wellness</div>
+
+                    <div class="flex items-end gap-0.5 text-[#003F70]">
+                        <span class="justify-start text-xl font-semibold">10 000</span>
+                        <span class="justify-start text-base font-medium">₴</span>
+                    </div>
+                </div>
+
+                <div class="text-[#003F70] text-base font-normal leading-normal mb-2">Комплексний ДНК-аналіз здоров’я на основі 120 показників</div>
+                
+                <div class="flex items-center gap-2 flex-wrap">
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-[#F8FAFC] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#003F70] text-base font-bold leading-none">Детальніше</span>
+                    </a>
+                    <a class="w-[calc(50%-4px)] px-2 py-3 bg-gradient-to-r from-[#F75E1D] to-[#F97D3E] rounded-[999px] inline-flex justify-center items-center" href="#">
+                        <span class="text-[#fff] text-base font-bold leading-none">Купити</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+       
+      
+       
+    </div>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+---
+const { list } = Astro.props;
+---
+
+<div class="container my-5">
+    <ul>
+    {list.map((item: any) => (
+    item.href ?  <li class="inline"><a class="text-[#64748B] text-sm font-medium leading-none" href={item.href}>{item.name}</a> <span class="text-[#E2E8F0] text-sm font-medium leading-none">/</span> </li>
+    : <li class="inline"><span class="text-[#64748B] text-sm font-medium leading-none">{item.name}</span></li>
+
+    ))}
+   
+    </ul>
+</div>
