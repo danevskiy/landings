@@ -3,7 +3,7 @@ blocks:
   - type: header
     logo: /uploads/humess-logo-brand.svg
     menu:
-      - name: Головна
+      - name: Головна 1
         href: /
       - name: Про нас
         href: /about
