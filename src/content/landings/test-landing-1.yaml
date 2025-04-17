@@ -14,7 +14,7 @@ blocks:
         name: Головна
       - id: 1
         href: /products
-        name: Товари
+        name: Товари усі
       - id: 3
         name: Аналіз ДНК
   - type: product
